@@ -23,8 +23,8 @@ const Hero = () => {
           withCredentials: true,
         }
       );
-      // console.log(response.data);
-      // console.log(response.data.data._id);
+      console.log(response.data);
+      console.log(response.data.data._id);
       setUser(response.data.data);
     };
     getMyProfile();
@@ -33,9 +33,9 @@ const Hero = () => {
     <div className="w-full">
       <div className="flex items-center gap-2 mb-2">
         <span
-          className={`${user ? "bg-green-400 rounded-full h-2 w-2" : ""} `}
+          className={`${user._id ? "bg-green-400 rounded-full h-2 w-2" : ""} `}
         ></span>
-        {user ? <p>Online</p> : <p>Offline</p>}
+        {user._id ? <p>Online</p> : <p>Offline</p>}
       </div>
       {/* <div className="flex items-center gap-2 mb-2">
         <span className="bg-green-400 rounded-full h-2 w-2"></span>
