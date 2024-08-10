@@ -10,23 +10,27 @@ const addSkill = asyncHandler(async (req, res) => {
         success: false
       });
     }
-    const { svg } = req.files;
+  const { svg } = req.files;
+  console.log("req file is", req.files);
     const { title, proficiency } = req.body;
     if (!title || !proficiency) {
       return res.status(500).json({
         message: "Please Fill Full Form!",
         success: false
       });
-    }
+  }
+  console.log("title amd proficiency is", title, proficiency);
     const cloudinaryResponse = await cloudinary.uploader.upload(
       svg.tempFilePath,
       { folder: "PORTFOLIO SKILL IMAGES" }
-    );
+  );
+  console.log("cloudinary response is: ", cloudinaryResponse);
     if (!cloudinaryResponse || cloudinaryResponse.error) {
       console.error(
         "Cloudinary Error:",
         cloudinaryResponse.error || "Unknown Cloudinary error"
       );
+      console.log("clodinary error is :", cloudinaryResponse.error)
       return res.status(500).json({
         message: "Failed to upload avatar to Cloudinary",
         success: false
@@ -40,6 +44,7 @@ const addSkill = asyncHandler(async (req, res) => {
         url: cloudinaryResponse.secure_url,
         },
     });
+  console.log("Skills is :", skill);
     return res.status(201).json({
       success: true,
       message: "New Skill Added",
