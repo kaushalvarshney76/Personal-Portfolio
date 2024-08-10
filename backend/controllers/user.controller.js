@@ -252,13 +252,11 @@ const updatePassword = asyncHandler(async (req, res) => {
 })
 
 const getUserPortfolio = asyncHandler(async (req, res) => {
-  const _id = "66af283f337e61cec7cb5e59";
-  const user = await User.findById(_id);
-  // console.log(user);
-  return res.status(200).json(
-    new ApiResponse(200, user, "User fetched our Porfolio successfully")
-  )
-})
+  const user = await User.findById(req.user._id).select("-password");
+  return res
+    .status(200)
+    .json(new ApiResponse(200, user, "User Portfolio Fetched successfully!!"));
+});
 
 const forgotPassword = asyncHandler(async (req, res) => {
   const user = await User.findOne({ email: req.body.email });

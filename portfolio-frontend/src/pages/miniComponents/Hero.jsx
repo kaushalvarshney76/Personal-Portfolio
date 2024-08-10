@@ -24,7 +24,7 @@ const Hero = () => {
         }
       );
       console.log(response.data);
-      console.log(response.data.data._id);
+      // console.log(response.data.data._id);
       setUser(response.data.data);
     };
     getMyProfile();
