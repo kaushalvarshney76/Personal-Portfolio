@@ -15,7 +15,7 @@ const Contact = () => {
     setLoading(true);
     await axios
       .post(
-        "http://localhost:4000/api/v1/message/sendMessage",
+        "https://personal-portfolio-kiin.onrender.com/api/v1/message/sendMessage",
         { senderName, subject, message },
         {
           withCredentials: true,

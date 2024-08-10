@@ -7,7 +7,7 @@ const MyApps = () => {
   useEffect(() => {
     const getMyApps = async () => {
       const { data } = await axios.get(
-        "http://localhost:4000/api/v1/softwareApplication/getall",
+        "https://personal-portfolio-kiin.onrender.com/api/v1/softwareApplication/getall",
         { withCredentials: true }
       );
       setApps(data.data);
@@ -23,7 +23,10 @@ const MyApps = () => {
         {apps &&
           apps.map((element) => {
             return (
-              <Card className="h-fit p-7 flex flex-col justify-center items-center gap-3" key={element._id}>
+              <Card
+                className="h-fit p-7 flex flex-col justify-center items-center gap-3"
+                key={element._id}
+              >
                 <img
                   src={element.svg && element.svg.url}
                   alt="skill"

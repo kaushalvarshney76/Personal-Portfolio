@@ -18,7 +18,7 @@ const Hero = () => {
   useEffect(() => {
     const getMyProfile = async () => {
       const response = await axios.get(
-        "http://localhost:4000/api/v1/users/getPortfolio",
+        "https://personal-portfolio-kiin.onrender.com/api/v1/users/getPortfolio",
         {
           withCredentials: true,
         }

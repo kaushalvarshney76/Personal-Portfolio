@@ -5,7 +5,7 @@ const About = () => {
   useEffect(() => {
     const getMyabout = async () => {
       const response = await axios.get(
-        "http://localhost:4000/api/v1/users/profile",
+        "https://personal-portfolio-kiin.onrender.com/api/v1/users/profile",
         { withCredentials: true }
       );
       // console.log("about is: ",response);
