@@ -11,7 +11,7 @@ const addSkill = asyncHandler(async (req, res) => {
       });
     }
   const { svg } = req.files;
-  console.log("req file is", req.files);
+  // console.log("req file is", req.files);
     const { title, proficiency } = req.body;
     if (!title || !proficiency) {
       return res.status(500).json({
@@ -19,12 +19,12 @@ const addSkill = asyncHandler(async (req, res) => {
         success: false
       });
   }
-  console.log("title amd proficiency is", title, proficiency);
+  // console.log("title amd proficiency is", title, proficiency);
     const cloudinaryResponse = await cloudinary.uploader.upload(
       svg.tempFilePath,
       { folder: "PORTFOLIO SKILL IMAGES" }
   );
-  console.log("cloudinary response is: ", cloudinaryResponse);
+  // console.log("cloudinary response is: ", cloudinaryResponse);
     if (!cloudinaryResponse || cloudinaryResponse.error) {
       console.error(
         "Cloudinary Error:",
@@ -44,7 +44,7 @@ const addSkill = asyncHandler(async (req, res) => {
         url: cloudinaryResponse.secure_url,
         },
     });
-  console.log("Skills is :", skill);
+  // console.log("Skills is :", skill);
     return res.status(201).json({
       success: true,
       message: "New Skill Added",
