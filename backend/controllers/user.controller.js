@@ -140,7 +140,9 @@ const logoutUser = asyncHandler(async (req, res) => {
     .clearCookie(
       "token",
       {
-    httpOnly: true
+        httpOnly: true,
+        sameSite: "None",
+        secure: true
       }
     )
     .json(
