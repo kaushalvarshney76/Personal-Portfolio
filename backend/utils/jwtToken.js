@@ -8,7 +8,7 @@ export const generateToken = (user, message, statusCode, res) => {
       ),
       httpOnly: true,
       sameSite: "None",
-      secure: false,
+      secure: true,
     })
     .json({
       success: true,
