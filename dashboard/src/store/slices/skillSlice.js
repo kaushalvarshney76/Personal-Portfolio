@@ -114,13 +114,11 @@ export const addNewSkill = (data) => async (dispatch) => {
         headers: { "Content-Type": "multipart/form-data" },
       }
     );
-    console.log("add new skills is: ", response);
     console.log("add new skills is: ", response.data);
     // console.log(response.data.message);
     dispatch(skillSlice.actions.addNewSkillSuccess(response.data.message));
     dispatch(skillSlice.actions.clearAllErrors());
   } catch (error) {
-    console.log(error);
     dispatch(skillSlice.actions.addNewSkillFailed(error.response.data.message));
   }
 };
