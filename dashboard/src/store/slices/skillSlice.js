@@ -120,7 +120,8 @@ export const addNewSkill = (data) => async (dispatch) => {
     dispatch(skillSlice.actions.addNewSkillSuccess(response.data.message));
     dispatch(skillSlice.actions.clearAllErrors());
   } catch (error) {
-    dispatch(skillSlice.actions.addNewSkillFailed(error.response.message));
+    console.log(error);
+    dispatch(skillSlice.actions.addNewSkillFailed(error.response.data.message));
   }
 };
 
